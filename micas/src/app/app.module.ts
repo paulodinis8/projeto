@@ -7,7 +7,10 @@ import { IndexComponentComponent } from './index-component/index-component.compo
 import { ListajogosComponent } from './listajogos/listajogos.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { UserService } from './user.service';
-import { HttpClientModule } from '@angular/common/http';
+
+import { HttpClientModule }    from '@angular/common/http';
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 
 @NgModule({
@@ -20,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   bootstrap: [AppComponent],
   providers: [UserService]
