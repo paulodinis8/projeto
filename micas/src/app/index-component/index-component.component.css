@@ -1,0 +1,56 @@
+.image-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.image{
+  border-radius: 20%;
+  background-image: url('/assets/jogo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+  width: 200px;
+}
+
+#centro {
+  width:100px;
+  height:100px;
+  position:absolute;
+  top:40%;
+  left:45%;
+  margin-top:-40px;
+  margin-left:-45px;
+}
+
+#esq {
+  width:100px;
+  height:100px;
+  position:absolute;
+  top:80%;
+  left:37%;
+  margin-top:-80px;
+  margin-left:-37px;
+}
+
+#cent {
+  width:100px;
+  height:100px;
+  position:absolute;
+  top:80%;
+  left:47%;
+  margin-top:-80px;
+  margin-left:-47px;
+}
+
+#dir {
+  width:100px;
+  height:100px;
+  position:absolute;
+  top:80%;
+  left:57%;
+  margin-top:-80px;
+  margin-left:-57px;
+}

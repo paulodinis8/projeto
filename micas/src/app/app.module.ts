@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { IndexComponentComponent } from './index-component/index-component.component';
+import { ListajogosComponent } from './listajogos/listajogos.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { UserService } from './user.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
+    AppComponent,
+    IndexComponentComponent,
+    ListajogosComponent,
     AppComponent,
     CabecalhoComponent
   ],

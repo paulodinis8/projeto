@@ -6,21 +6,7 @@ import java.util.*;
 @Entity
 public class AvaliacaoJogo {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
-    @ManyToOne
-    private Utilizador utilizador;
-
-    @ManyToOne
-    private Jogo jogo ;
-
-    @Column
-    private int estrelas;
-
-    @Column
-    private String comentario;
+    @\
 
     public  AvaliacaoJogo(){
     };
