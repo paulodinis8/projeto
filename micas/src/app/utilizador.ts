@@ -1,11 +1,11 @@
 export class Utilizador {
   id: number;
-  name: string;
+  nome: string;
   localidade: string;
   email : string;
   idade : number;
+  password : string;
   genero : string;
-  pontos : number;
+  totalPontos : number;
   //imagem : ???
-  tipo : number;
 }

@@ -1,9 +1,8 @@
 package pt.domain;
 
-import org.hibernate.annotations.ManyToAny;
-
 import javax.persistence.*;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Jogo {

@@ -2,11 +2,11 @@ package pt.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pt.domain.Jogo;
+import pt.domain.*;
 
 import java.util.List;
 
 @Repository
 public interface JogoRespository extends JpaRepository<Jogo, Integer>{
-    List<Jogo> findByNome(String nome);
+    //List<Jogo> findByNome(String nome);
 }

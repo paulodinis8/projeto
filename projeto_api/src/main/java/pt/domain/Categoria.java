@@ -21,10 +21,7 @@ public class Categoria {
             cascade = CascadeType.ALL)
     private Set<Jogo> jogos = new HashSet<>();
 
-    public Categoria() {
-    }
-
-    public Categoria(String designacao, int subCategoria_id){
+    public Categoria(String designacao, int subCategoria_id) {
     }
 
     public Categoria(String designacao,Categoria subCategoria_id){

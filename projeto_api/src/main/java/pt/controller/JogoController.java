@@ -2,11 +2,10 @@ package pt.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pt.domain.Jogo;
-import pt.repository.JogoRespository;
+import pt.domain.*;
+import pt.repository.*;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 public class JogoController {

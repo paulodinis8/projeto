@@ -4,21 +4,35 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-public class AvaliacaoJogo {
+public class Avaliacaojogo {
 
-    @\
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
-    public  AvaliacaoJogo(){
+    @ManyToOne
+    private Jogo jogo;
+
+    @ManyToOne
+    private Utilizador utilizador;
+
+    @Column
+    private int estrelas;
+
+    @Column
+    private String comentario;
+
+    public  Avaliacaojogo(){
     };
 
-    public AvaliacaoJogo(Utilizador utilizador, Jogo jogo, int estrelas, String favorito){
+    public Avaliacaojogo(Utilizador utilizador, Jogo jogo, int estrelas, String favorito){
         this.utilizador = utilizador;
         this.jogo = jogo;
         this.setEstrelas(estrelas);
         this.setComentario(comentario);
     }
 
-    public AvaliacaoJogo(int id, Utilizador utilizador, Jogo jogo, int estrelas, String favorito){
+    public Avaliacaojogo(int id, Utilizador utilizador, Jogo jogo, int estrelas, String favorito){
         this.setId(id);
         this.utilizador=utilizador;
         this.jogo = jogo;
@@ -69,7 +83,7 @@ public class AvaliacaoJogo {
 
     @Override
     public String toString() {
-        return "AvaliacaoJogo{" +
+        return "Avaliacaojogo{" +
                 "id=" + id +
                 ", utilizador=" + utilizador +'\'' +
                 ", jogo=" + jogo +'\'' +

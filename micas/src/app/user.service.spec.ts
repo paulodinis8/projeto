@@ -1,6 +1,7 @@
+///<reference path="../../node_modules/@types/jasmine/index.d.ts"/>
 import { TestBed, inject } from '@angular/core/testing';
 
-import { InfoService } from './info.service';
+import { InfoService } from "./info.service";
 
 describe('InfoService', () => {
   beforeEach(() => {

@@ -11,6 +11,8 @@ import { UserService } from './user.service';
 import { HttpClientModule }    from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { AppRoutingModule } from './/app-routing.module';
+import { PerfilUserComponent } from './perfil-user/perfil-user.component';
 
 
 @NgModule({
@@ -19,11 +21,13 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     IndexComponentComponent,
     ListajogosComponent,
     AppComponent,
-    CabecalhoComponent
+    CabecalhoComponent,
+    PerfilUserComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
   bootstrap: [AppComponent],
   providers: [UserService]
