@@ -15,10 +15,11 @@ export class PerfilUserComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
+    this.user = new Utilizador();
   }
 
   getUser(): void {
-    this.userService.getUser(1)
+    this.userService.getUser(2)
       .subscribe(user => this.user = user);
     //.subscribe((user) => {
     //  console.log(user);

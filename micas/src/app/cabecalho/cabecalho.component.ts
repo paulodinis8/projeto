@@ -1,5 +1,5 @@
 ///<reference path="../../../node_modules/rxjs/internal/Observable.d.ts"/>
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Utilizador } from '../utilizador';
 import { UserService } from '../user.service';
 
@@ -12,21 +12,23 @@ import { UserService } from '../user.service';
 })
 
 export class CabecalhoComponent implements OnInit {
-  title = 'Bau de Jogos';
-  user: Utilizador;
+    title = 'Bau de Jogos';
+    user: Utilizador;
+//@Input() user: Utilizador;
 
   constructor(private userService: UserService) {
   }
 
   ngOnInit() {
-    this.getUser();
+      this.user = new Utilizador();
+      this.getUser();
   }
 
   getUser(): void {
-    this.userService.getUser(1)
+    this.userService.getUser(2)
       .subscribe(user => this.user = user);
-    //.subscribe((user) => {
-    //  console.log(user);
+     // .subscribe((user) => {
+    //console.log(user);
     //}
 
   }

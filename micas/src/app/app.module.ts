@@ -11,8 +11,10 @@ import { UserService } from './user.service';
 import { HttpClientModule }    from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { PerfilUserComponent } from './perfil-user/perfil-user.component';
+
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 @NgModule({
@@ -28,8 +30,11 @@ import { PerfilUserComponent } from './perfil-user/perfil-user.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    CarouselModule.forRoot(),
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [
+    AppComponent
+  ],
   providers: [UserService]
 })
 export class AppModule { }

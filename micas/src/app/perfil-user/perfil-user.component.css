@@ -11,3 +11,8 @@
 .text-right {
   text-align: right;
 }
+
+.carousel-inner img {
+  width: 200px;
+  margin: auto;
+}

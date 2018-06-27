@@ -28,17 +28,19 @@ public class Jogo {
 
     public Jogo(){}
 
-    public Jogo(String nome, String link, String descricao){
+    public Jogo(String nome, String link, String descricao, Set<Categoria> categorias){
         this.setNome(nome);
         this.setLink(link);
         this.setDescricao(descricao);
+        this.setCategoria(categorias);
     }
 
-    public Jogo(int id, String nome, String link, String descricao){
+    public Jogo(int id, String nome, String link, String descricao, Set<Categoria> categorias){
         this.setId(id);
         this.setNome(nome);
         this.setLink(link);
         this.setDescricao(descricao);
+        this.setCategoria(categorias);
     }
 
     public int getId(){
@@ -68,6 +70,9 @@ public class Jogo {
     public void setDescricao(String descricao){
         this.descricao=descricao;
     }
+
+    public Set<Categoria> getCategoria() {return categorias; }
+    private void setCategoria(Set<Categoria> categorias) { this.categorias=categorias; }
 
     @Override
     public String toString() {

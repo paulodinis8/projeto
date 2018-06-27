@@ -1,7 +1,8 @@
 ///<reference path="user.service.ts"/>
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Utilizador} from './utilizador';
 import {UserService} from './user.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,21 @@ import {UserService} from './user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  Utizador: Utilizador[];
+  @Input() user: Utilizador;
 
-  constructor(private userService: UserService){ }
-
-  ngOnInit() {
-
+  constructor(private userService: UserService) {
   }
 
+  ngOnInit() {
+    this.getUser();
+  }
+
+  getUser(): void {
+    this.userService.getUser(2)
+      .subscribe(user => this.user = user);
+    //.subscribe((user) => {
+    //  console.log(user);
+    //}
+
+  }
 }

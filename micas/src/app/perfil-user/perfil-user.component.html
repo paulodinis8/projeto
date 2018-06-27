@@ -6,31 +6,50 @@
 
   </div>
   <div class="col-2">
-      <img border="0" alt="Foto_prefil" src="/assets/fotoprefil.png" height="250" class="text-right">
+    <img border="0" alt="Foto_prefil" src="/assets/fotoprefil.png" height="250" class="text-right">
   </div>
   <div class="col-4">
-      <table class="table ">
-        <tr>
-          <td><b class="colorB">Nome:</b> {{user.nome}}</td>
-        </tr>
-        <tr>
-          <td><b class="colorB">Idade:</b> {{user.idade}}</td>
-        </tr>
-        <tr>
-          <td><b class="colorB">Localidade:</b> {{user.localidade}}</td>
-        </tr>
-        <tr>
-          <td><b class="colorB">Email:</b> {{user.email}}</td>
-        </tr>
-        <tr>
-          <td><b class="colorB">Genero:</b> {{user.genero}}</td>
-        </tr>
-        <tr>
-          <td><b class="colorB">Horas de Jogo:</b> {{user.totalPontos}}</td>
-        </tr>
-      </table>
-
+    <table class="table ">
+      <tr>
+        <td><b class="colorB">Nome:</b> {{user.nome}}</td>
+      </tr>
+      <tr>
+        <td><b class="colorB">Idade:</b> {{user.idade}}</td>
+      </tr>
+      <tr>
+        <td><b class="colorB">Localidade:</b> {{user.localidade}}</td>
+      </tr>
+      <tr>
+        <td><b class="colorB">Email:</b> {{user.email}}</td>
+      </tr>
+      <tr>
+        <td><b class="colorB">Genero:</b> {{user.genero}}</td>
+      </tr>
+      <tr>
+        <td><b class="colorB">Horas de Jogo:</b> {{user.totalPontos}}</td>
+      </tr>
+    </table>
   </div>
+
 </div>
 
+
+<div class="container">
+  <h1 class="text-center">Os meus jogos</h1>
+
+  <div style="margin: auto" style="width:200px">
+  <carousel data-interval="false" >
+    <slide>
+      <img src="/assets/fotoprefil.png" alt="first slide" style="display: block; width: 100%;">
+    </slide>
+    <slide>
+      <img src="/assets/estrela.jpg" alt="second slide" style="display: block; width: 100%;">
+    </slide>
+    <slide>
+      <img src="/assets/fotoprefil.png" alt="third slide" style="display: block; width: 100%;">
+    </slide>
+  </carousel>
+  </div>
+
+</div>
 

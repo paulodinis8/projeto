@@ -1,8 +1,10 @@
+import {Categoria} from "./categoria";
+
 export class Jogo{
   id: number;
-  link: string;
   nome: string;
+  link: string;
   //imagem : ??? ;
   descricao: string;
-  categorias: string[];
+  categorias: Categoria[];
 }
