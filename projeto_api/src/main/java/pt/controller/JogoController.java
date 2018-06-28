@@ -13,6 +13,7 @@ public class JogoController {
     @Autowired
     JogoRespository jogoRespository;
 
+    @CrossOrigin
     @GetMapping("/jogo")
     public  List<Jogo> index(){
         return jogoRespository.findAll();

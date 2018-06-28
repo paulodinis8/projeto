@@ -1,8 +1,9 @@
 package pt.domain;
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Jogo {
@@ -15,7 +16,7 @@ public class Jogo {
     private String link;
     private String descricao;
 
-    @ManyToMany(fetch = FetchType.LAZY,
+  /*  @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
                     CascadeType.PERSIST,
                     CascadeType.MERGE
@@ -24,11 +25,11 @@ public class Jogo {
             joinColumns = { @JoinColumn(name = "jogo_id") },
             inverseJoinColumns = { @JoinColumn(name = "categoria_id") })
     private Set<Categoria> categorias = new HashSet<>();
-
+*/
 
     public Jogo(){}
 
-    public Jogo(String nome, String link, String descricao, Set<Categoria> categorias){
+    /*public Jogo(String nome, String link, String descricao, Set<Categoria> categorias){
         this.setNome(nome);
         this.setLink(link);
         this.setDescricao(descricao);
@@ -41,6 +42,20 @@ public class Jogo {
         this.setLink(link);
         this.setDescricao(descricao);
         this.setCategoria(categorias);
+    }
+*/
+    public Jogo(int id, String nome, String link, String descricao) {
+        this.setId(id);
+        this.setNome(nome);
+        this.setLink(link);
+        this.setDescricao(descricao);
+    }
+
+
+    public Jogo(String nome, String link, String descricao) {
+        this.setNome(nome);
+        this.setLink(link);
+        this.setDescricao(descricao);
     }
 
     public int getId(){
@@ -70,17 +85,17 @@ public class Jogo {
     public void setDescricao(String descricao){
         this.descricao=descricao;
     }
-
+/*
     public Set<Categoria> getCategoria() {return categorias; }
     private void setCategoria(Set<Categoria> categorias) { this.categorias=categorias; }
-
+*/
     @Override
     public String toString() {
         return "Jogo{" +
                 "id=" + id +
                 ", nome =" + nome + '\'' +
-                ", localidade=" + link + '\'' +
-                ", email=" + descricao + '\'' +
+                ", link=" + link + '\'' +
+                ", descricao=" + descricao + '\'' +
                 "}";
 
     }

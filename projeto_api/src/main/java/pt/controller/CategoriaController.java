@@ -2,10 +2,11 @@ package pt.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pt.domain.*;
+import pt.domain.Categoria;
 import pt.repository.*;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class CategoriaController {
@@ -13,6 +14,7 @@ public class CategoriaController {
     @Autowired
     CategoriaRespository categoriaRespository;
 
+    @CrossOrigin
     @GetMapping("/categoria")
     public  List<Categoria> index(){
         return categoriaRespository.findAll();
@@ -33,8 +35,8 @@ public class CategoriaController {
     @PostMapping("/categoria")
     public Categoria create(@RequestBody Map<String, String> body){
         String designacao = body.get("designacao");
-        int subCategoria_id = Integer.parseInt(body.get("subCategoria_id"));
-        return categoriaRespository.save(new Categoria(designacao, subCategoria_id));
+        //int subCategoria_id = Integer.parseInt(body.get("subCategoria_id"));
+        return categoriaRespository.save(new Categoria(designacao));
     }
 
 
@@ -44,7 +46,7 @@ public class CategoriaController {
         // getting categoria
         Categoria categoria = categoriaRespository.findOne(categoriaId);
         categoria.setDesignacao(body.get("designacao"));
-        categoria.setDesignacao(body.get("subCategoria_id"));
+     //   categoria.setDesignacao(body.get("subCategoria_id"));
         return categoriaRespository.save(categoria);
     }
 
