@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PerfilUserComponent } from './perfil-user/perfil-user.component';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     ListajogosComponent,
     AppComponent,
     CabecalhoComponent,
-    PerfilUserComponent
+    PerfilUserComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
