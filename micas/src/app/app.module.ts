@@ -16,6 +16,7 @@ import { PerfilUserComponent } from './perfil-user/perfil-user.component';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { EstatisticasComponent } from './estatisticas/estatisticas.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     AppComponent,
     CabecalhoComponent,
     PerfilUserComponent,
-    SidebarComponent
+    SidebarComponent,
+    EstatisticasComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,6 @@ import { UserService } from "../user.service";
 
 import { Jogo } from "../jogo";
 import { Categoria } from "../categoria";
-import {forEach} from "@angular/router/src/utils/collection";
 
 
 @Component({
@@ -15,12 +14,30 @@ import {forEach} from "@angular/router/src/utils/collection";
 export class ListajogosComponent implements OnInit {
 
   jogos : Jogo[];
+
   filtros : string[];
+
+  paginas: number;
+
+  paginaAtual : number;
+
+
 
   constructor( private userService: UserService) { }
 
   ngOnInit() {
-    this.getJogos();
+    this.getJJJOOOGG();
+    //if( this.filtros.length > 0) this.filtrarJogos();
+    this.paginas = this.jogos.length / 6; // porque vai aparecer 6 jogos por pagina
+    this.paginaAtual = 0;
+  }
+
+  avancaPag():void{
+    if( this.paginaAtual + 1 < this.paginas ) this.paginaAtual ++;
+  }
+
+  retrocedePag():void{
+    if( this.paginaAtual > 1 ) this.paginaAtual --;
   }
 
   handleMyEvent( arg ): void{
@@ -29,29 +46,36 @@ export class ListajogosComponent implements OnInit {
     else this.filtros.splice(index,1);
   }
 
+  /*
+  filtrarJogos():void {
 
-  getJogos(): void{
-    this.userService.getJogos()
-    .subscribe(jogos => this.jogos = jogos);
-
-    // caso nao haja filtros aplicados vamos imprimir todos os jogos
-    if( this.filtros.length == 0 ) return ;
-
-    for( let i = 0; i < this.jogos.length; i ++ ){
+    for (let i = 0; i < this.jogos.length; i++) {
       let flag = false;
 
       //  cat é uma lista de categorias ( mas em string)
-      let cat : string[] = this.jogos[i].categorias.map( function (x) {  return x.descricao; });
+      let cat: string[] = this.jogos[i].categorias.map(function (x) {
+        return x.descricao;
+      });
 
       // verificar se o jogo em questao tem pelo menos uma categoria que procuramos
-      for( let j = 0; j < this.filtros.length && !flag; j++)
-        if( cat.indexOf( this.filtros[j] )  != -1 ) flag = true;
+      for (let j = 0; j < this.filtros.length && !flag; j++)
+        if (cat.indexOf(this.filtros[j]) != -1)
+          flag = true;
 
       // caso nao tenha, eliminamos
-      if( !flag ){
-        this.jogos.splice(i,1);
-      }
+      if (!flag)  this.jogos.splice(i, 1);
     }
   }
+  */
 
+  getJogos(): void {
+    this.userService.getJogos()
+      .subscribe(jogos => this.jogos = jogos);
+  }
+
+  getJJJOOOGG(): void{
+    for(let i = 0; i < 8; i ++)
+      this.userService.getJogo(i)
+        .subscribe(jogo => this.jogos[i] = jogo);
+  }
 }

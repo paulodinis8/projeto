@@ -20,8 +20,9 @@ import {of} from 'rxjs/internal/observable/of';
 export class UserService {
 
 
-  private usersUrl = 'http://localhost:8080/utilizador'; // URL to web api
+  private usersUrl = 'http://localhost:8080/utilizador';
   private gamesUrl = 'http://localhost:8080/jogo';
+  private categoriaUrl =  'http://localhost:8080/categoria';
 
   constructor( private http: HttpClient ) { }
 
@@ -41,8 +42,15 @@ export class UserService {
       );
   }
 
+  getJogo( id : number): Observable<Jogo> {
+    return this.http.get<Jogo>(`${this.gamesUrl}/${id}`)
+      .pipe(
+        catchError(this.handleError<Jogo>(`get Jogos`))
+      );
+  }
+
    getCategorias(): Observable<Categoria[]>{
-     return this.http.get<Categoria[]>(this.gamesUrl)
+     return this.http.get<Categoria[]>(this.categoriaUrl)
        .pipe(
          catchError(this.handleError<Categoria[]>(`Get categorias`))
        );

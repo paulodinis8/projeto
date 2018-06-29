@@ -1,0 +1,34 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<div class="container">
+  <br>  <p  style="font-size: 20px;" class="text-center">Filtros </p>
+  <hr>
+
+  <div >
+      <div >
+        <article *ngFor="let categoria of categorias"  class="card-group-item">
+          <header class="card-header">
+            <h4 class="title"> {{categoria.descricao}} </h4>
+          </header>
+
+          <div *ngFor="let subcategoria of categoria.subcategoria" class="filter-content">
+
+            <div class="card-body">
+              <label class="form-check">
+                <h5> {{subcategoria.descricao}} </h5>
+                <!-- <button (click)="goBack()">go back</button> -->
+              </label>
+            </div> <!-- card-body.// -->
+
+          </div>
+
+        </article> <!-- card-group-item.// -->
+      </div> <!-- card.// -->
+  </div>
+</div>

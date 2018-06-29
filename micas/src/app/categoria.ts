@@ -3,3 +3,5 @@ export class Categoria {
   descricao: string;
   subcategoria: Categoria[];
 }
+
+
