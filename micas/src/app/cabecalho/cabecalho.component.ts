@@ -1,7 +1,7 @@
 ///<reference path="../../../node_modules/rxjs/internal/Observable.d.ts"/>
-import {Component, Input, OnInit} from '@angular/core';
-import { Utilizador } from '../utilizador';
-import { UserService } from '../user.service';
+import {Component, OnInit} from '@angular/core';
+import {Utilizador} from '../utilizador';
+import {UserService} from '../user.service';
 
 
 @Component({
@@ -14,7 +14,6 @@ import { UserService } from '../user.service';
 export class CabecalhoComponent implements OnInit {
     title = 'Bau de Jogos';
     user: Utilizador;
-//@Input() user: Utilizador;
 
   constructor(private userService: UserService) {
   }
@@ -28,4 +27,5 @@ export class CabecalhoComponent implements OnInit {
     this.userService.getUser(2)
       .subscribe(user => this.user = user);
   }
+
 }

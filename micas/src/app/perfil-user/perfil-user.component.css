@@ -12,7 +12,17 @@
   text-align: right;
 }
 
-.carousel-inner img {
-  width: 200px;
-  margin: auto;
+#centro-carousel {
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  /*top:82%;*/
+  left: 40%;
+  /* margin-top:-40px; */
+  margin-left: -45px;
+}
+
+#title-esq {
+  position: absolute;
+  left: 40%;
 }

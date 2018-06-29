@@ -3,7 +3,7 @@ package pt.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pt.domain.Categoria;
-import pt.repository.*;
+import pt.repository.CategoriaRespository;
 
 import java.util.List;
 import java.util.Map;
@@ -20,6 +20,7 @@ public class CategoriaController {
         return categoriaRespository.findAll();
     }
 
+    @CrossOrigin
     @GetMapping("/categoria/{id}")
     public Categoria show(@PathVariable String id){
         int categoriaId = Integer.parseInt(id);

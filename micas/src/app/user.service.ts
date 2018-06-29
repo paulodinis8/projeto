@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { Utilizador } from './utilizador';
-import { Observable } from 'rxjs';
+import {Utilizador} from './utilizador';
+import {Observable} from 'rxjs';
 
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
 
-import { Jogo } from './jogo';
-import { Categoria } from './categoria';
+import {Jogo} from './jogo';
+import {Categoria} from './categoria';
 
 import {of} from 'rxjs/internal/observable/of';
 
@@ -35,6 +35,14 @@ export class UserService {
     );
   }
 
+  getGame(id: number): Observable<Jogo> {
+    const url = `${this.gamesUrl}/${id}`;
+
+    return this.http.get<Jogo>(url).pipe(
+      catchError(this.handleError<Jogo>('getGame id =${id}'))
+    );
+  }
+
   getJogos(): Observable<Jogo[]> {
     return this.http.get<Jogo[]>(this.gamesUrl)
       .pipe(
@@ -56,6 +64,9 @@ export class UserService {
        );
    }
 
+  // getGameFromCat(categorias: String[]){
+  //  ;
+  // }
 
    private handleError<T> (operation = 'operation', result?: T) {
      return (error: any): Observable<T> => {
@@ -63,5 +74,6 @@ export class UserService {
        return of( result as T );
      };
    }
+
 
 }

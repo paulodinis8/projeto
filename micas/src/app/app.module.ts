@@ -1,22 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
 
-import { AppComponent } from './app.component';
-import { IndexComponentComponent } from './index-component/index-component.component';
-import { ListajogosComponent } from './listajogos/listajogos.component';
-import { CabecalhoComponent } from './cabecalho/cabecalho.component';
-import { UserService } from './user.service';
+import {AppComponent} from './app.component';
+import {IndexComponentComponent} from './index-component/index-component.component';
+import {ListajogosComponent} from './listajogos/listajogos.component';
+import {CabecalhoComponent} from './cabecalho/cabecalho.component';
+import {UserService} from './user.service';
 
-import { HttpClientModule }    from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
+import {AppRoutingModule} from './app-routing.module';
+import {PerfilUserComponent} from './perfil-user/perfil-user.component';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { AppRoutingModule } from './app-routing.module';
-import { PerfilUserComponent } from './perfil-user/perfil-user.component';
-
-import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { EstatisticasComponent } from './estatisticas/estatisticas.component';
+import {CarouselModule} from 'ngx-bootstrap/carousel';
+//import { SidebarComponent } from './sidebar/sidebar.component';
+import {PagJogoComponent} from './pag-jogo/pag-jogo.component';
+import {SidebarComponent} from './sidebar/sidebar.component';
+import {EstatisticasComponent} from './estatisticas/estatisticas.component';
 
 
 @NgModule({
@@ -29,6 +29,8 @@ import { EstatisticasComponent } from './estatisticas/estatisticas.component';
     PerfilUserComponent,
     SidebarComponent,
     EstatisticasComponent
+    SidebarComponent,
+    PagJogoComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,8 @@ import { EstatisticasComponent } from './estatisticas/estatisticas.component';
   bootstrap: [
     AppComponent
   ],
-  providers: [UserService]
+  providers: [
+    UserService
+  ]
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
 package pt.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "categoria")
@@ -16,9 +18,10 @@ public class Categoria {
     @JoinColumn(name = "id", nullable = false)
     private Categoria subCategoria_id;
 
-    @ManyToMany(fetch = FetchType.LAZY,
+   */
+ @ManyToMany(fetch=FetchType.LAZY,
             cascade = CascadeType.ALL)
-    private Set<Jogo> jogos = new HashSet<>();*/
+ private Set<Jogo> jogos=new HashSet<>();
 
     public Categoria(){}
 

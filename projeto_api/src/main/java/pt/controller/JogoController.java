@@ -2,10 +2,11 @@ package pt.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pt.domain.*;
-import pt.repository.*;
+import pt.domain.Jogo;
+import pt.repository.JogoRespository;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class JogoController {
@@ -19,6 +20,7 @@ public class JogoController {
         return jogoRespository.findAll();
     }
 
+    @CrossOrigin
     @GetMapping("/jogo/{id}")
     public Jogo show(@PathVariable String id){
         int jogoId = Integer.parseInt(id);
