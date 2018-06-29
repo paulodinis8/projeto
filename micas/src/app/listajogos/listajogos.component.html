@@ -3,7 +3,10 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
         <!-- meter o filtro-->
-        <app-sidebar></app-sidebar>
+        <app-sidebar
+          [filtros]="filtros"
+          (aplicarFiltro) = "handleMyEvent($event)" >
+        </app-sidebar>
     </div>
 
     <div class="col-sm-9">

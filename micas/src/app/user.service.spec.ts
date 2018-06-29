@@ -1,16 +1,16 @@
 //<reference path="../../node_modules/@types/jasmine/index.d.ts"/>
 import { TestBed, inject } from '@angular/core/testing';
 
-import { InfoService } from './info.service';
+import { UserService } from './user.service';
 
 describe('InfoService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [InfoService]
+      providers: [UserService ]
     });
   });
 
-  it('should be created', inject([InfoService], (service: InfoService) => {
+  it('should be created', inject([UserService], (service: UserService ) => {
     expect(service).toBeTruthy();
   }));
 });

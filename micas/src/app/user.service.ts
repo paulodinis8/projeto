@@ -8,6 +8,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Jogo } from './jogo';
+import { Categoria } from './categoria';
+
 import {of} from 'rxjs/internal/observable/of';
 
 
@@ -32,18 +34,20 @@ export class UserService {
     );
   }
 
-/*  getGame(id: number): Observable<Jogo> {
-    const url = `${this.gamesUrl}/${id}`;
-
-    return this.http.get<Jogo>(url)
+  getJogos(): Observable<Jogo[]> {
+    return this.http.get<Jogo[]>(this.gamesUrl)
       .pipe(
-        catchError(this.handleError<Jogo>(`getGame id=${id}`))
+        catchError(this.handleError<Jogo[]>(`get Jogos`))
       );
-  }*/
+  }
 
-  // getGameFromCat(categorias: String[]){
-  //  ;
-  // }
+   getCategorias(): Observable<Categoria[]>{
+     return this.http.get<Categoria[]>(this.gamesUrl)
+       .pipe(
+         catchError(this.handleError<Categoria[]>(`Get categorias`))
+       );
+   }
+
 
    private handleError<T> (operation = 'operation', result?: T) {
      return (error: any): Observable<T> => {
@@ -51,6 +55,5 @@ export class UserService {
        return of( result as T );
      };
    }
-
 
 }
