@@ -3,7 +3,7 @@ package pt.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pt.domain.Utilizador;
-import pt.repository.*;
+import pt.repository.UtilizadorRespository;
 
 import java.util.List;
 import java.util.Map;
@@ -42,7 +42,8 @@ public class UtilizadorController {
         String password=body.get("password");
         String genero= body.get("genero");
         int totalPontos=Integer.parseInt(body.get("totalPontos"));
-        return utilizadorRespository.save(new Utilizador(nome, localidade, email, idade, password, genero, totalPontos));
+        String foto=body.get("foto");
+        return utilizadorRespository.save(new Utilizador(nome, localidade, email, idade, password, genero, totalPontos, foto));
     }
 
     @PutMapping("/utilizador/{id}")
@@ -57,6 +58,7 @@ public class UtilizadorController {
         utilizador.setPassword(body.get("password"));
         utilizador.setGenero(body.get("genero"));
         utilizador.setTotalPontos(Integer.parseInt(body.get("totalPontos")));
+        utilizador.setFoto("foto");
         return utilizadorRespository.save(utilizador);
     }
 

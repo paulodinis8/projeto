@@ -1,7 +1,8 @@
 package pt.domain;
 
-import java.util.*;
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Progresso {
@@ -25,6 +26,10 @@ public class Progresso {
     private Set<Utilizador> utilizadors = new HashSet<>();
 
     public Progresso(){}
+
+    public Progresso(String favorito) {
+        this.favorito=favorito;
+    }
 
     public Progresso(Jogo jogo, Utilizador utilizador, String favorito){
         this.setJogo(jogo);

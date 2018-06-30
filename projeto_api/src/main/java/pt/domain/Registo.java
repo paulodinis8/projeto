@@ -1,8 +1,7 @@
 package pt.domain;
 
 import javax.persistence.*;
-
-import java.util.*;
+import java.util.Date;
 
 @Entity
 public class Registo {
@@ -19,6 +18,11 @@ public class Registo {
     private Progresso progresso;
 
     public Registo() {
+    }
+
+    public Registo(Date data, int tempo) {
+        this.data=data;
+        this.tempo=tempo;
     }
 
     public Registo(int id, Date data, int tempo, Progresso progresso) {

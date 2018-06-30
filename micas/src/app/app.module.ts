@@ -28,8 +28,7 @@ import {EstatisticasComponent} from './estatisticas/estatisticas.component';
     CabecalhoComponent,
     PerfilUserComponent,
     SidebarComponent,
-    EstatisticasComponent
-    SidebarComponent,
+    EstatisticasComponent,
     PagJogoComponent
   ],
   imports: [

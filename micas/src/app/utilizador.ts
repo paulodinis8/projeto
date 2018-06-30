@@ -7,5 +7,5 @@ export class Utilizador {
   password : string;
   genero : string;
   totalPontos : number;
-  //imagem : ???
+  foto: string;
 }

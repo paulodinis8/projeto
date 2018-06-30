@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from "../user.service";
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "../user.service";
 
-import { Jogo } from "../jogo";
-import { Categoria } from "../categoria";
+import {Jogo} from "../jogo";
 
 
 @Component({
@@ -27,6 +26,7 @@ export class ListajogosComponent implements OnInit {
 
   ngOnInit() {
     this.getJJJOOOGG();
+    this.filtros = [];
     //if( this.filtros.length > 0) this.filtrarJogos();
     this.paginas = this.jogos.length / 6; // porque vai aparecer 6 jogos por pagina
     this.paginaAtual = 0;
@@ -44,6 +44,8 @@ export class ListajogosComponent implements OnInit {
     let index  =  this.filtros.indexOf(arg);
     if(  index == -1) this.filtros.push( arg );
     else this.filtros.splice(index,1);
+
+    console.log("received filter with id=" + arg);
   }
 
   /*
