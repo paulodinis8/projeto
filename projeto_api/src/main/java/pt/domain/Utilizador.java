@@ -18,6 +18,7 @@ public class Utilizador {
     private String password;
     private String genero;
     private int totalPontos;
+    private String foto;
 
 
     //Amigos N utilizadores tem N utilizadores
@@ -54,7 +55,7 @@ public class Utilizador {
 
     public Utilizador(){}
 
-    public Utilizador(String nome, String localidade, String email, int idade, String password, String genero, int totalPontos){
+    public Utilizador(String nome, String localidade, String email, int idade, String password, String genero, int totalPontos, String foto) {
         this.setNome(nome);
         this.setLocalidade(localidade);
         this.setEmail(email);
@@ -62,9 +63,10 @@ public class Utilizador {
         this.setPassword(password);
         this.setGenero(genero);
         this.setTotalPontos(totalPontos);
+        this.setFoto(foto);
     }
 
-    public Utilizador(int id, String nome, String localidade, String email, int idade, String password, String genero, int totalPontos){
+    public Utilizador(int id, String nome, String localidade, String email, int idade, String password, String genero, int totalPontos, String foto) {
         this.setId(id);
         this.setNome(nome);
         this.setLocalidade(localidade);
@@ -73,6 +75,7 @@ public class Utilizador {
         this.setPassword(password);
         this.setGenero(genero);
         this.setTotalPontos(totalPontos);
+        this.setFoto(foto);
     }
 
     public int getId(){
@@ -131,6 +134,14 @@ public class Utilizador {
         this.totalPontos=totalPontos;
     }
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto=foto;
+    }
+
     @Override
     public String toString() {
         return "Utilizador{"+
@@ -142,6 +153,7 @@ public class Utilizador {
                 ", password=" + password + '\'' +
                 ", genero=" + genero + '\'' +
                 ",totalPontos=" + totalPontos + '\'' +
+                ",foto=" + foto + '\'' +
                 "}";
     }
 }

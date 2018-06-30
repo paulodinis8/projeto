@@ -38,7 +38,8 @@ public class JogoController {
         String nome = body.get("nome");
         String link = body.get("link");
         String descricao = body.get("descricao");
-        return jogoRespository.save(new Jogo(nome, link, descricao));
+        String foto=body.get("foto");
+        return jogoRespository.save(new Jogo(nome, link, descricao, foto));
     }
 
 
@@ -50,6 +51,7 @@ public class JogoController {
         jogo.setNome(body.get("nome"));
         jogo.setLink(body.get("link"));
         jogo.setDescricao(body.get("descricao"));
+        jogo.setFoto(body.get("foto"));
         return jogoRespository.save(jogo);
     }
 

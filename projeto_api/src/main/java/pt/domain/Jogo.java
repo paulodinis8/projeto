@@ -14,6 +14,7 @@ public class Jogo {
     private String nome;
     private String link;
     private String descricao;
+    private String foto;
 
     @ManyToMany(fetch=FetchType.LAZY,
             cascade={
@@ -29,33 +30,38 @@ public class Jogo {
     public Jogo() {
     }
 
-    public Jogo(String nome, String link, String descricao, Set<Categoria> categorias) {
+
+    public Jogo(String nome, String link, String descricao, String foto, Set<Categoria> categorias) {
         this.setNome(nome);
         this.setLink(link);
         this.setDescricao(descricao);
+        this.setFoto(foto);
         this.setCategoria(categorias);
     }
 
-    public Jogo(int id, String nome, String link, String descricao, Set<Categoria> categorias) {
+    public Jogo(int id, String nome, String link, String descricao, String foto, Set<Categoria> categorias) {
         this.setId(id);
         this.setNome(nome);
         this.setLink(link);
         this.setDescricao(descricao);
+        this.setFoto(foto);
         this.setCategoria(categorias);
     }
 
-    public Jogo(int id, String nome, String link, String descricao) {
+    public Jogo(int id, String nome, String link, String descricao, String foto) {
         this.setId(id);
         this.setNome(nome);
         this.setLink(link);
         this.setDescricao(descricao);
+        this.setFoto(foto);
     }
 
 
-    public Jogo(String nome, String link, String descricao) {
+    public Jogo(String nome, String link, String descricao, String foto) {
         this.setNome(nome);
         this.setLink(link);
         this.setDescricao(descricao);
+        this.setFoto(foto);
     }
 
     public int getId() {
@@ -88,6 +94,14 @@ public class Jogo {
 
     public void setDescricao(String descricao) {
         this.descricao=descricao;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto=foto;
     }
 
     public Set<Categoria> getCategoria() {

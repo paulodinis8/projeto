@@ -30,7 +30,7 @@ public class CategoriaController {
     /*@PostMapping("/jogo/search")
     public List<Jogo> search(@RequestBody Map<String, String> body){
         String searchTerm = body.get("text");
-        return jogoRespository.findByNome();
+        return categoriaRespository.findByNome();
     }*/
 
     @PostMapping("/categoria")
@@ -40,6 +40,14 @@ public class CategoriaController {
         return categoriaRespository.save(new Categoria(designacao));
     }
 
+   /* @PostMapping("/categoria")
+    public Categoria create(@RequestBody Map<String, String> body){
+        String designacao = body.get("designacao");
+        int subCategoria_id = Integer.parseInt(body.get("subCategoria_id"));
+        return categoriaRespository.save(new Categoria(designacao,subCategoria_id));
+    }
+
+*/
 
     @PutMapping("/categoria/{id}")
     public Categoria update(@PathVariable String id, @RequestBody Map<String, String> body){

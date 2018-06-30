@@ -1,6 +1,6 @@
 export class Categoria {
   id: number;
-  descricao: string;
+  designacao: string;
   subcategoria: Categoria[];
 }
 

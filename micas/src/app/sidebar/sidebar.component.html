@@ -14,14 +14,14 @@
       <div >
         <article *ngFor="let categoria of categorias"  class="card-group-item">
           <header class="card-header">
-            <h4 class="title"> {{categoria.descricao}} </h4>
+            <h4 class="title" (click)="applyFilter(categoria.id)"> {{categoria.designacao}} </h4>
           </header>
 
           <div *ngFor="let subcategoria of categoria.subcategoria" class="filter-content">
 
             <div class="card-body">
               <label class="form-check">
-                <h5> {{subcategoria.descricao}} </h5>
+                <h5> {{subcategoria.designacao}} </h5>
                 <!-- <button (click)="goBack()">go back</button> -->
               </label>
             </div> <!-- card-body.// -->

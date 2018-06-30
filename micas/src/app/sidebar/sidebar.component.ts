@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { UserService } from "../user.service";
-import { Categoria } from "../categoria";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {UserService} from "../user.service";
+import {Categoria} from "../categoria";
 
 @Component({
   selector: 'app-sidebar',
@@ -17,6 +17,7 @@ export class SidebarComponent implements OnInit {
   constructor( private userService: UserService ) { }
 
   applyFilter( arg ){
+    console.log("appling filter" + arg);
     this.aplicarFiltro.emit(arg);
   }
 
