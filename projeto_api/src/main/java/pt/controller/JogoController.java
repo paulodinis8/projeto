@@ -1,6 +1,8 @@
 package pt.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 import pt.domain.Jogo;
 import pt.repository.JogoRespository;
@@ -15,9 +17,15 @@ public class JogoController {
     JogoRespository jogoRespository;
 
     @CrossOrigin
-    @GetMapping("/jogo")
+    @GetMapping("/jogoTodos")
     public  List<Jogo> index(){
         return jogoRespository.findAll();
+    }
+    
+    @CrossOrigin
+    @GetMapping("/jogo")
+    public Page<Jogo> findByPage(@RequestParam("page")int  page, @RequestParam("size") int size ){
+    	return jogoRespository.findAllPaginated(new PageRequest(page,size));
     }
 
     @CrossOrigin
