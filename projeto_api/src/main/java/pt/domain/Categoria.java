@@ -10,6 +10,9 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @ManyToOne
+    private Propriedade propriedade;
+
     private String designacao;
 
   /*  @OneToOne(fetch = FetchType.LAZY)
@@ -23,17 +26,12 @@ public class Categoria {
         this.setDesignacao(designacao);
     }
 
-    /*  public Categoria(String designacao, Categoria subCategoria_id){
-          this.setDesignacao(designacao);
-          this.setSubCategoria_id(subCategoria_id);
-      }
+    public Categoria(int id, Propriedade propriedade, String designacao) {
+        this.id=id;
+        this.propriedade=propriedade;
+        this.designacao=designacao;
+    }
 
-      public Categoria(int id, String designacao, Categoria subCategoria_id){
-          this.setId(id);
-          this.setDesignacao(designacao);
-          this.setSubCategoria_id(subCategoria_id);
-      }
-  */
     public int getId(){
         return id;
     }
@@ -48,13 +46,14 @@ public class Categoria {
         this.designacao=designacao;
     }
 
-    /*    public Categoria getSubCategoria_id(){
-            return subCategoria_id;
-        }
-        public void setSubCategoria_id(Categoria subCategoria_id){
-            this.subCategoria_id=subCategoria_id;
-        }
-    */
+    public Propriedade getPropriedade() {
+        return propriedade;
+    }
+
+    public void setPropriedade(Propriedade propriedade) {
+        this.propriedade=propriedade;
+    }
+
     @Override
     public String toString() {
         return "Categoria{" +
