@@ -1,4 +1,4 @@
-<div>
+<!--div>
   <h1 class="text-center">
     Detalhes de Prefil
   </h1>
@@ -32,5 +32,38 @@
         </tr>
       </table>
     </div>
+  </div>
+</div-->
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <!-- informacao sobre o jogo ( titulo, descricao, categorias, comentarios)-->
+      <h1>
+        {{game.nome}}
+      </h1>
+      <div>
+        {{game.descricao}}
+      </div>
+      <h2>
+        Categoria:
+      </h2>
+      <div *ngFor="let categoria of game?.categoria">
+        {{categoria.designacao}}
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <!-- imagem e botao para jogar -->
+        <div>
+          <img border="0" alt="Foto jogo" src="{{game.foto}}" class="text-right">
+        </div>
+        <br>
+        <div class="mesmo-tamanho">
+          <a href="{{game.link}}" role="button" aria-pressed="true" class="btn btn-success btn-xl">JOGAR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-100"></div>
   </div>
 </div>
