@@ -1,6 +1,7 @@
 package pt.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +19,7 @@ public class Utilizador {
     private String password;
     private String genero;
     private int totalPontos;
+    @Size(min=1, max=100000, message="type need to have only 1 characters")
     private String foto;
 
 
@@ -32,9 +34,6 @@ public class Utilizador {
             inverseJoinColumns = { @JoinColumn(name = "utilizador2_id") })
     private Set<Utilizador> utilizadores = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    private Set<Utilizador> utilizadors = new HashSet<>();
 
     //N utilizadores tem N grupos
     @ManyToMany(fetch = FetchType.LAZY,
@@ -42,7 +41,7 @@ public class Utilizador {
     private Set<Grupo> grupos = new HashSet<>();
 
     //N utilizadores vao avaliar N progressos
-    @ManyToMany(fetch = FetchType.LAZY,
+    /*@ManyToMany(fetch = FetchType.LAZY,
             cascade = {
                     CascadeType.PERSIST,
                     CascadeType.MERGE
@@ -51,7 +50,7 @@ public class Utilizador {
             joinColumns = { @JoinColumn(name = "utilizador_id") },
             inverseJoinColumns = { @JoinColumn(name = "progresso_id") })
     private Set<Progresso> progressos = new HashSet<>();
-
+*/
 
     public Utilizador(){}
 

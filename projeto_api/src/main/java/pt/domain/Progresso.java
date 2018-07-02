@@ -18,7 +18,7 @@ public class Progresso {
     private Utilizador utilizador;
 
     @Column
-    private String favorito;
+    private boolean favorito;
 
     //N utilizadores avaliao N progressos
     @ManyToMany(fetch = FetchType.LAZY,
@@ -27,17 +27,17 @@ public class Progresso {
 
     public Progresso(){}
 
-    public Progresso(String favorito) {
+    public Progresso(Boolean favorito) {
         this.favorito=favorito;
     }
 
-    public Progresso(Jogo jogo, Utilizador utilizador, String favorito){
+    public Progresso(Jogo jogo, Utilizador utilizador, boolean favorito) {
         this.setJogo(jogo);
         this.setUtilizador(utilizador);
         this.setFavorito(favorito);
     }
 
-    public Progresso(int id, Jogo jogo, Utilizador utilizador, String favorito){
+    public Progresso(int id, Jogo jogo, Utilizador utilizador, boolean favorito) {
         this.setId(id);
         this.setJogo(jogo);
         this.setUtilizador(utilizador);
@@ -65,10 +65,11 @@ public class Progresso {
         this.utilizador=utilizador;
     }
 
-    public String getFavorito(){
+    public boolean getFavorito() {
         return favorito;
     }
-    public void setFavorito(String favorito){
+
+    public void setFavorito(boolean favorito) {
         this.favorito=favorito;
     }
 

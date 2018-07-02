@@ -1,6 +1,7 @@
 package pt.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,8 +13,10 @@ public class Jogo {
     private int id;
 
     private String nome;
+    @Size(min=1, max=100000, message="type need to have only 1 characters")
     private String link;
     private String descricao;
+    @Size(min=1, max=100000, message="type need to have only 1 characters")
     private String foto;
 
     @ManyToMany(fetch=FetchType.LAZY,

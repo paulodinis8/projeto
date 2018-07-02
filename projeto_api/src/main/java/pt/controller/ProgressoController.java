@@ -20,11 +20,18 @@ public class ProgressoController {
         return progressoRespository.findAll();
     }
 
-    @CrossOrigin
+/*    @CrossOrigin
     @GetMapping("/progresso/{id}")
     public Progresso show(@PathVariable String id){
         int progressoId = Integer.parseInt(id);
         return progressoRespository.findOne(progressoId);
+    }
+*/
+
+    @CrossOrigin
+    @GetMapping("/progresso/user/{userId}")
+    public List<Progresso> show(@PathVariable int userId) {
+        return progressoRespository.findProgressoByUser(userId);
     }
 
     /*@PostMapping("/jogo/search")
@@ -34,7 +41,7 @@ public class ProgressoController {
     }*/
     @PostMapping("/progresso")
     public Progresso create(@RequestBody Map<String, String> body){
-        String favorito = body.get("favorito");
+        boolean favorito=Boolean.parseBoolean(body.get("favorito"));
         return progressoRespository.save(new Progresso(favorito));
     }
 
@@ -44,7 +51,7 @@ public class ProgressoController {
         int proressoId = Integer.parseInt(id);
         // getting utilizador
         Progresso progresso= progressoRespository.findOne(proressoId);
-        progresso.setFavorito(body.get("favorito"));
+        progresso.setFavorito(Boolean.parseBoolean(body.get("favorito")));
         return progressoRespository.save(progresso);
     }
 
@@ -54,6 +61,5 @@ public class ProgressoController {
         progressoRespository.delete(progressoId);
         return true;
     }
-
 
 }

@@ -1,40 +1,3 @@
-<!--div>
-  <h1 class="text-center">
-    Detalhes de Prefil
-  </h1>
-  <br>
-  <div class="row">
-    <div class="col-4">
-
-    </div>
-    <div class="col-2">
-      <img border="0" alt="Foto_prefil" src="/assets/fotoprefil.png" height="250" class="text-right">
-    </div>
-    <div class="col-4">
-      <table class="table ">
-        <tr>
-          <td><b class="colorB">Nome:</b></td>
-        </tr>
-        <tr>
-          <td><b class="colorB">Idade:</b></td>
-        </tr>
-        <tr>
-          <td><b class="colorB">Localidade:</b></td>
-        </tr>
-        <tr>
-          <td><b class="colorB">Email:</b></td>
-        </tr>
-        <tr>
-          <td><b class="colorB">Genero:</b></td>
-        </tr>
-        <tr>
-          <td><b class="colorB">Horas de Jogo:</b></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div-->
-
 <div class="container">
   <div class="row">
     <div class="col">
@@ -50,6 +13,12 @@
       </h2>
       <div *ngFor="let categoria of game?.categoria">
         {{categoria.designacao}}
+      </div>
+      <h2>
+        Comentários:
+      </h2>
+      <div>
+
       </div>
     </div>
     <div class="col">

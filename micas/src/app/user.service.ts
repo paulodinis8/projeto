@@ -12,6 +12,7 @@ import {Categoria} from './categoria';
 
 import {of} from 'rxjs/internal/observable/of';
 import {Pagina} from "./pagina";
+import {Progresso} from "./progresso";
 
 
 @Injectable({
@@ -21,9 +22,10 @@ import {Pagina} from "./pagina";
 export class UserService {
 
 
-  private usersUrl = 'http://localhost:8888/utilizador';
-  private gamesUrl = 'http://localhost:8888/jogo';
-  private categoriaUrl =  'http://localhost:8888/categoria';
+  private usersUrl = 'http://localhost:8080/utilizador';
+  private gamesUrl = 'http://localhost:8080/jogo';
+  private categoriaUrl = 'http://localhost:8080/categoria';
+  private progressoUserUrl = 'http://localhost:8080/progresso/user';
 
   constructor( private http: HttpClient ) { }
 
@@ -36,21 +38,19 @@ export class UserService {
     );
   }
 
-  getGame(id: number): Observable<Jogo> {
-    const url = `${this.gamesUrl}/${id}`;
-
-    return this.http.get<Jogo>(url).pipe(
-      catchError(this.handleError<Jogo>('getGame id =${id}'))
-    );
-  }
-
-  getJogos( pag: number, filtros: number[] ): Observable<Pagina> {
+  getJogos(pag: number, filtros: number[]): Observable<Pagina> {
     let url = `${this.gamesUrl}?page=${pag}&size=6&filter=${filtros}`;
-
     console.log(url);
     return this.http.get<Pagina>( url )
       .pipe(
         catchError(this.handleError<Pagina>(`get Jogos`))
+      );
+  }
+
+  getJogo(id: number): Observable<Jogo> {
+    return this.http.get<Jogo>(`${this.gamesUrl}/${id}`)
+      .pipe(
+        catchError(this.handleError<Jogo>(`get Jogos`))
       );
   }
 
@@ -60,6 +60,13 @@ export class UserService {
          catchError(this.handleError<Categoria[]>(`Get categorias`))
        );
    }
+
+  getProgresso(id: number): Observable<Progresso[]> {
+    return this.http.get<Progresso[]>(`${this.progressoUserUrl}/${id}`)
+      .pipe(
+        catchError(this.handleError<Progresso[]>('get progresso by user'))
+      );
+  }
 
    private handleError<T> (operation = 'operation', result?: T) {
      return (error: any): Observable<T> => {

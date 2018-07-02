@@ -1,17 +1,15 @@
 <div>
 <h1 class="text-center">
-  Detalhes de Prefil
+  Detalhes de Perfil
 </h1>
   <br>
 <div class="row">
-  <div class="col-4">
+  <div class="col-6" style="float: right;">
+    <img border="0" alt="Foto_prefil" src="{{user.foto}}" height="250" style="float: right; max-width: 100%;">
+  </div>
 
-  </div>
-  <div class="col-2">
-    <img border="0" alt="Foto_prefil" src="/assets/fotoprefil.png" height="250" class="text-right">
-  </div>
-  <div class="col-4">
-    <table class="table ">
+  <div class="col-6">
+    <table class="table">
       <tr>
         <td><b class="colorB">Nome:</b> {{user.nome}}</td>
       </tr>
@@ -28,7 +26,7 @@
         <td><b class="colorB">Genero:</b> {{user.genero}}</td>
       </tr>
       <tr>
-        <td><b class="colorB">Horas de Jogo:</b> {{game.nome}}</td>
+        <td><b class="colorB">Horas de Jogo:</b> {{user.totalPontos}}</td>
       </tr>
     </table>
   </div>
@@ -44,22 +42,17 @@
   <h1 class="text-center">Os meus jogos</h1>
   <br>
   <div>
-    <carousel data-interval="false">
-      <slide>
-        <img src="/assets/fotoprefil.png" alt="first slide" style="width: 100%;">
-      </slide>
-      <slide>
-        <img src="/assets/estrela.jpg" alt="second slide" style="width: 100%;">
-      </slide>
-      <slide>
-        <img src="/assets/fotoprefil.png" alt="third slide" style="width: 100%;">
-      </slide>
+    <carousel>
+      <div *ngFor="let proc of progressos">
+        <slide>
+          <a href="/jogo/{{proc.jogo.id}}">
+            <img src="{{proc.jogo.foto}}" alt="first slide" style="width: 100%;">
+          </a>
+        </slide>
+      </div>
     </carousel>
   </div>
 
 </div>
 
 
-<div>
-
-</div>

@@ -8,7 +8,7 @@ import {PagJogoComponent} from "./pag-jogo/pag-jogo.component";
 
 const routes: Routes = [
   { path: 'listajogos', component: ListajogosComponent },
-  { path: 'perfil', component: PerfilUserComponent},
+  {path: 'perfil/:id', component: PerfilUserComponent},
   { path: '', component: IndexComponentComponent, },
   { path: 'estatisticas', component: EstatisticasComponent},
   { path: 'jogo/:id', component: PagJogoComponent}

@@ -13,13 +13,13 @@
 }
 
 #centro-carousel {
-  width: 300px;
+  width: 500px;
   height: 200px;
   position: absolute;
   /*top:82%;*/
-  left: 40%;
+  left: 50%;
   /* margin-top:-40px; */
-  margin-left: -45px;
+  margin-left: -250px;
 }
 
 #title-esq {

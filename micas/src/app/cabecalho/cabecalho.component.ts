@@ -24,7 +24,7 @@ export class CabecalhoComponent implements OnInit {
   }
 
   getUser(): void {
-    this.userService.getUser(2)
+    this.userService.getUser(1)
       .subscribe(user => this.user = user);
   }
 

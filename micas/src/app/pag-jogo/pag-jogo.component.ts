@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Jogo} from "../jogo";
 import {UserService} from "../user.service";
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './pag-jogo.component.html',
   styleUrls: ['./pag-jogo.component.scss']
 })
+
 export class PagJogoComponent implements OnInit {
   game: Jogo;
 
@@ -18,12 +19,12 @@ export class PagJogoComponent implements OnInit {
 
   ngOnInit() {
     this.game = new Jogo();
-    this.getGame();
+    this.getJogo();
   }
 
-  getGame(): void {
+  getJogo(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.userService.getGame(id)
+    this.userService.getJogo(id)
       .subscribe(game => this.game = game);
   }
 
