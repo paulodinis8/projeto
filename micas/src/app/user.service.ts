@@ -1,4 +1,3 @@
-
 import {Injectable} from '@angular/core';
 
 import {Utilizador} from './utilizador';
@@ -22,9 +21,9 @@ import {Pagina} from "./pagina";
 export class UserService {
 
 
-  private usersUrl = 'http://localhost:8080/utilizador';
-  private gamesUrl = 'http://localhost:8080/jogo';
-  private categoriaUrl =  'http://localhost:8080/categoria';
+  private usersUrl = 'http://localhost:8888/utilizador';
+  private gamesUrl = 'http://localhost:8888/jogo';
+  private categoriaUrl =  'http://localhost:8888/categoria';
 
   constructor( private http: HttpClient ) { }
 
@@ -47,6 +46,7 @@ export class UserService {
 
   getJogos( pag: number, filtros: number[] ): Observable<Pagina> {
     let url = `${this.gamesUrl}?page=${pag}&size=6&filter=${filtros}`;
+
     console.log(url);
     return this.http.get<Pagina>( url )
       .pipe(

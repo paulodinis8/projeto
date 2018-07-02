@@ -8,74 +8,28 @@
         </app-sidebar>
     </div>
 
-    <div *ngIf ="pag">
+    <div class="col-sm-9"  *ngIf ="pag">
 
-      <div class="col-sm-9">
-        <div class="container">
-          <div class="row">
+      <div >
+        <div class="container" *ngFor="let index of [0,1] ">
+          <div class="row"  >
 
-            <div class="col-sm-3">
-              <div class="panel panel-primary">
+            <div class="col-sm-3 d-sm-inline-flex">
+              <div class="panel panel-primary " *ngFor="let jogo of pag.content.slice(3 * index , 3 * (index+1) )">
                 <div class="panel-heading">
-                  <a routerLink="/jogo/{{pag.content[0].id}}"> {{pag.content[0].nome}}  </a>
+                  <a routerLink="/jogo/{{jogo.id}}"> {{jogo.nome}}  </a>
                 </div>
-                <div class="panel-body"><img src={{pag.content[0].foto}} class="img-responsive" style="width: 100%" alt="Image"></div>
-              </div>
-            </div>
-
-            <div class="col-sm-3">
-              <div class="panel panel-primary">
-                <div class="panel-heading">
-                  <a routerLink="/jogo/{{pag.content[1].id}}"> {{pag.content[1].nome}}  </a>
-                </div>
-                <div class="panel-body"> <img src={{pag.content[1].foto}} class="img-responsive" style="width:100%" alt="Image"></div>
-              </div>
-            </div>
-
-            <div class="col-sm-3">
-              <div class="panel panel-primary">
-                <div class="panel-heading">
-                  <a routerLink="/jogo/{{pag.content[2].id}}"> {{pag.content[2].nome}} </a>
-                </div>
-                <div class="panel-body"><img src="{{pag.content[2].foto}}" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-body"><img src={{jogo.foto}} class="img-responsive" style="width: 100%" alt="Image"></div>
               </div>
             </div>
           </div>
+
         </div><br>
-
-
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-3">
-              <div class="panel panel-primary">
-                <div class="panel-heading">
-                  <a routerLink="/jogo/{{pag.content[3].id}}"> {{pag.content[3].nome}} </a>
-                </div>
-                <div class="panel-body"><img src="{{pag.content[3].foto}}" class="img-responsive" style="width:100%" alt="Image"></div>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="panel panel-primary">
-                <div class="panel-heading">
-                  <a routerLink="/jogo/{{pag.content[4].id}}">{{pag.content[4].nome}}  </a>
-                </div>
-                <div class="panel-body"><img src="{{pag.content[4].foto}}" class="img-responsive" style="width:100%" alt="Image"></div>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="panel panel-primary">
-                <div class="panel-heading">
-                  <a routerLink="/jogo/{{pag.content[5].id}}">  {{pag.content[5].nome}}  </a>
-                </div>
-                <div class="panel-body"><img src={{pag.content[5].foto}} class="img-responsive" style="width:100%" alt="Image"></div>
-              </div>
-            </div>
-          </div>
-        </div><br><br>
+        <br><br>
 
         <div class="row">
           <button *ngIf = "!pag.first" (click)="retrocedePag()"> Anterior </button>
-          <h1> {{ pag.number }} </h1>
+          <h1> {{ pag.number + 1 }} </h1>
           <button *ngIf = "!pag.last" (click)="avancaPag()"> Proxima </button>
         </div>
 
