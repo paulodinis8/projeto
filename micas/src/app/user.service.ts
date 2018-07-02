@@ -1,3 +1,4 @@
+
 import {Injectable} from '@angular/core';
 
 import {Utilizador} from './utilizador';
@@ -11,6 +12,7 @@ import {Jogo} from './jogo';
 import {Categoria} from './categoria';
 
 import {of} from 'rxjs/internal/observable/of';
+import {Pagina} from "./pagina";
 
 
 @Injectable({
@@ -43,17 +45,12 @@ export class UserService {
     );
   }
 
-  getJogos(): Observable<Jogo[]> {
-    return this.http.get<Jogo[]>(this.gamesUrl)
+  getJogos( pag: number, filtros: number[] ): Observable<Pagina> {
+    let url = `${this.gamesUrl}?page=${pag}&size=6&filter=${filtros}`;
+    console.log(url);
+    return this.http.get<Pagina>( url )
       .pipe(
-        catchError(this.handleError<Jogo[]>(`get Jogos`))
-      );
-  }
-
-  getJogo( id : number): Observable<Jogo> {
-    return this.http.get<Jogo>(`${this.gamesUrl}/${id}`)
-      .pipe(
-        catchError(this.handleError<Jogo>(`get Jogos`))
+        catchError(this.handleError<Pagina>(`get Jogos`))
       );
   }
 
@@ -63,10 +60,6 @@ export class UserService {
          catchError(this.handleError<Categoria[]>(`Get categorias`))
        );
    }
-
-  // getGameFromCat(categorias: String[]){
-  //  ;
-  // }
 
    private handleError<T> (operation = 'operation', result?: T) {
      return (error: any): Observable<T> => {

@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
@@ -9,54 +8,78 @@
         </app-sidebar>
     </div>
 
-    <div class="col-sm-9">
+    <div *ngIf ="pag">
 
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="panel panel-primary">
-              <div class="panel-heading"> <!-- {{jogos[paginaAtual][0].descricao}}> --> ola</div>
-              <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="panel panel-primary">
-              <div class="panel-heading">ola mundo2</div>
-              <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="panel panel-primary">
-              <div class="panel-heading">ola mundo3</div>
-              <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-            </div>
-          </div>
-        </div>
-      </div><br>
+      <div class="col-sm-9">
+        <div class="container">
+          <div class="row">
 
-      <div class="container">
+            <div class="col-sm-3">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <a routerLink="/jogo/{{pag.content[0].id}}"> {{pag.content[0].nome}}  </a>
+                </div>
+                <div class="panel-body"><img src={{pag.content[0].foto}} class="img-responsive" style="width: 100%" alt="Image"></div>
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <a routerLink="/jogo/{{pag.content[1].id}}"> {{pag.content[1].nome}}  </a>
+                </div>
+                <div class="panel-body"> <img src={{pag.content[1].foto}} class="img-responsive" style="width:100%" alt="Image"></div>
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <a routerLink="/jogo/{{pag.content[2].id}}"> {{pag.content[2].nome}} </a>
+                </div>
+                <div class="panel-body"><img src="{{pag.content[2].foto}}" class="img-responsive" style="width:100%" alt="Image"></div>
+              </div>
+            </div>
+          </div>
+        </div><br>
+
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <a routerLink="/jogo/{{pag.content[3].id}}"> {{pag.content[3].nome}} </a>
+                </div>
+                <div class="panel-body"><img src="{{pag.content[3].foto}}" class="img-responsive" style="width:100%" alt="Image"></div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <a routerLink="/jogo/{{pag.content[4].id}}">{{pag.content[4].nome}}  </a>
+                </div>
+                <div class="panel-body"><img src="{{pag.content[4].foto}}" class="img-responsive" style="width:100%" alt="Image"></div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <a routerLink="/jogo/{{pag.content[5].id}}">  {{pag.content[5].nome}}  </a>
+                </div>
+                <div class="panel-body"><img src={{pag.content[5].foto}} class="img-responsive" style="width:100%" alt="Image"></div>
+              </div>
+            </div>
+          </div>
+        </div><br><br>
+
         <div class="row">
-          <div class="col-sm-3">
-            <div class="panel panel-primary">
-              <div class="panel-heading">BLACK FRIDAY DEAL</div>
-              <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="panel panel-primary">
-              <div class="panel-heading">BLACK FRIDAY DEAL</div>
-              <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="panel panel-primary">
-              <div class="panel-heading">BLACK FRIDAY DEAL</div>
-              <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-            </div>
-          </div>
+          <button *ngIf = "!pag.first" (click)="retrocedePag()"> Anterior </button>
+          <h1> {{ pag.number }} </h1>
+          <button *ngIf = "!pag.last" (click)="avancaPag()"> Proxima </button>
         </div>
-      </div><br><br>
+
+      </div>
     </div>
   </div>
 </div>
-

@@ -10,14 +10,14 @@ import {Categoria} from "../categoria";
 
 export class SidebarComponent implements OnInit {
 
-  @Input() filtros: string[];
-  @Output() aplicarFiltro : EventEmitter<string> = new EventEmitter<string>();
+  @Input() filtros: Categoria[];
+  @Output() aplicarFiltro : EventEmitter<Categoria> = new EventEmitter<Categoria>();
+
   categorias : Categoria[];
 
   constructor( private userService: UserService ) { }
 
-  applyFilter( arg ){
-    console.log("appling filter" + arg);
+  applyFilter( arg : Categoria ){
     this.aplicarFiltro.emit(arg);
   }
 
@@ -27,6 +27,7 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.categorias = [];
     this.getCategorias();
   }
 

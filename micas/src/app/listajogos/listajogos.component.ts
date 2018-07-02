@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from "../user.service";
+import { UserService } from "../user.service";
 
-import {Jogo} from "../jogo";
-
+import { Pagina } from "../pagina";
+import { Categoria } from "../categoria";
 
 @Component({
   selector: 'app-listajogos',
@@ -10,74 +10,49 @@ import {Jogo} from "../jogo";
   styleUrls: ['./listajogos.component.css']
 })
 
+
 export class ListajogosComponent implements OnInit {
 
-  jogos : Jogo[];
-
-  filtros : string[];
-
-  paginas: number;
-
-  paginaAtual : number;
-
-
+  pag : Pagina;
+  filtros : Categoria[];
 
   constructor( private userService: UserService) { }
 
   ngOnInit() {
-    this.getJJJOOOGG();
+    this.pag = null;
     this.filtros = [];
-    //if( this.filtros.length > 0) this.filtrarJogos();
-    this.paginas = this.jogos.length / 6; // porque vai aparecer 6 jogos por pagina
-    this.paginaAtual = 0;
+    this.getJogos(0,[]);
   }
 
-  avancaPag():void{
-    if( this.paginaAtual + 1 < this.paginas ) this.paginaAtual ++;
-  }
-
-  retrocedePag():void{
-    if( this.paginaAtual > 1 ) this.paginaAtual --;
-  }
-
-  handleMyEvent( arg ): void{
-    let index  =  this.filtros.indexOf(arg);
-    if(  index == -1) this.filtros.push( arg );
-    else this.filtros.splice(index,1);
-
-    console.log("received filter with id=" + arg);
-  }
-
-  /*
-  filtrarJogos():void {
-
-    for (let i = 0; i < this.jogos.length; i++) {
-      let flag = false;
-
-      //  cat é uma lista de categorias ( mas em string)
-      let cat: string[] = this.jogos[i].categorias.map(function (x) {
-        return x.descricao;
-      });
-
-      // verificar se o jogo em questao tem pelo menos uma categoria que procuramos
-      for (let j = 0; j < this.filtros.length && !flag; j++)
-        if (cat.indexOf(this.filtros[j]) != -1)
-          flag = true;
-
-      // caso nao tenha, eliminamos
-      if (!flag)  this.jogos.splice(i, 1);
+  avancaPag():void {
+    if( ! this.pag.last ){
+      this.getJogos( this.pag.number +1, this.filtros.map( function (x) :number { return x.id }));
     }
   }
-  */
 
-  getJogos(): void {
-    this.userService.getJogos()
-      .subscribe(jogos => this.jogos = jogos);
+  retrocedePag():void {
+    if( ! this.pag.first ){
+      this.getJogos( this.pag.number -1, this.filtros.map( function (x) :number { return x.id }));
+    }
   }
 
-  getJJJOOOGG(): void{
-    for(let i = 0; i < 8; i ++)
-      this.userService.getJogo(i)
-        .subscribe(jogo => this.jogos[i] = jogo);
+
+  handleMyEvent( arg : Categoria): void {
+    let index  =  this.filtros.indexOf( arg );
+    if(  index == -1) this.filtros.push( arg );
+    else this.filtros.splice( index,1);
+    this.getJogos(0, this.filtros.map( function (x) :number { return x.id }) );
   }
+
+  getJogos( pagNumber: number, filter : number[] ): void {
+
+    this.userService.getJogos(pagNumber, filter )
+      .subscribe(pag => this.pag = pag);
+
+    debugger
+
+    if( this.pag) console.log("received page number:" + pagNumber + " whith filters:" + filter + " jogos:" + this.pag.numberOfElements )
+    else console.log("ERRROOOO");
+  }
+
 }
