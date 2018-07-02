@@ -3,12 +3,16 @@ package pt.controller;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
+import pt.domain.Categoria;
 import pt.domain.Jogo;
 import pt.repository.CategoriaRespository;
 import pt.repository.JogoRespository;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -36,10 +40,42 @@ public class JogoController {
     
     @CrossOrigin
     @GetMapping("/jogo")
-    public Page<Jogo> findByPage(@RequestParam("page")int  page, @RequestParam("size") int size ){
-    	return jogoRespository.findAllPaginated(new PageRequest(page,size));
+		public Page<Jogo> findByPage(@RequestParam("page") int page, @RequestParam("size") int size, @RequestParam("filter") List<Integer> filters) {
+	
+			if (filters != null && !filters.isEmpty()) {
+				List<Jogo> allJogos = jogoRespository.findAll();
+				List<Jogo> filteredJogos = filterCategoria(allJogos, filters);
+				return new PageImpl<Jogo>(filteredJogos, new PageRequest(page, size), filteredJogos.size());
+			}
+			return jogoRespository.findAllPaginated(new PageRequest(page, size));
     }
-
+	
+	public List<Jogo> filterCategoria(List<Jogo> jogos, List<Integer> filters) {
+		List<Jogo> jogosReturned = new ArrayList<>();
+		for (Jogo j : jogos) {
+			if (j.getCategoria() != null &&
+							!j.getCategoria().isEmpty()) {
+				List<Integer> categoriaID = getCategoriaIDList(j.getCategoria());
+				
+				if (categoriaID.containsAll(filters)) {
+					jogosReturned.add(j);
+				}
+			}
+		}
+		
+		System.out.println("filteredJogos: " + jogosReturned.size());
+		return jogosReturned;
+	}
+	
+	public List<Integer> getCategoriaIDList(Collection<Categoria> categorias) {
+		List<Integer> categoriaIDList = new ArrayList<>(categorias.size());
+		
+		for (Categoria categoria : categorias) {
+			categoriaIDList.add(categoria.getId());
+		}
+		return categoriaIDList;
+	}
+    
     @CrossOrigin
     @GetMapping("/jogo/{id}")
     public Jogo show(@PathVariable String id){
