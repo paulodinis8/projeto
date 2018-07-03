@@ -7,4 +7,6 @@ import pt.domain.Categoria;
 @Repository
 public interface CategoriaRespository extends JpaRepository<Categoria, Integer> {
 	//List<Categoria> findByDesignacao(String designacao);
+
+
 }

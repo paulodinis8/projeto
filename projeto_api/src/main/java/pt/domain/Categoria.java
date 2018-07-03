@@ -11,7 +11,7 @@ public class Categoria {
     private int id;
 
     @ManyToOne
-    private Propriedade propriedade;
+    private CategoriaPai categoriaPai;
 
     private String designacao;
 
@@ -26,9 +26,9 @@ public class Categoria {
         this.setDesignacao(designacao);
     }
 
-    public Categoria(int id, Propriedade propriedade, String designacao) {
+    public Categoria(int id, CategoriaPai categoriaPai, String designacao) {
         this.id=id;
-        this.propriedade=propriedade;
+        this.categoriaPai=categoriaPai;
         this.designacao=designacao;
     }
 
@@ -46,12 +46,12 @@ public class Categoria {
         this.designacao=designacao;
     }
 
-    public Propriedade getPropriedade() {
-        return propriedade;
+    public CategoriaPai getCategoriaPai() {
+        return categoriaPai;
     }
 
-    public void setPropriedade(Propriedade propriedade) {
-        this.propriedade=propriedade;
+    public void setCategoriaPai(CategoriaPai categoriaPai) {
+        this.categoriaPai=categoriaPai;
     }
 
     @Override

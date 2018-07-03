@@ -27,6 +27,8 @@ public class CategoriaController {
         return categoriaRespository.findOne(categoriaId);
     }
 
+
+
     /*@PostMapping("/jogo/search")
     public List<Jogo> search(@RequestBody Map<String, String> body){
         String searchTerm = body.get("text");

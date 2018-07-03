@@ -12,7 +12,7 @@
 
       <div >
         <div class="container" *ngFor="let index of [0,1] ">
-          <div class="row"  >
+          <div class="row" >
 
             <div class="col-sm-3 d-sm-inline-flex">
               <div class="panel panel-primary " *ngFor="let jogo of pag.content.slice(3 * index , 3 * (index+1) )">
@@ -22,6 +22,7 @@
                 <div class="panel-body"><img src={{jogo.foto}} class="img-responsive" style="width: 100%" alt="Image"></div>
               </div>
             </div>
+
           </div>
 
         </div><br>

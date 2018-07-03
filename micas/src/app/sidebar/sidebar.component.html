@@ -12,10 +12,21 @@
 
   <div >
       <div >
-        <article *ngFor="let categoria of categorias"  class="card-group-item">
+        <article *ngFor="let categoriaPai of getKeys()"  class="card-group-item">
 
           <header class="card-header">
-            <h4 class="title" (click)="applyFilter(categoria)"> {{categoria.designacao}} </h4>
+            <h2  class="title"> {{categoriaPai}} </h2>
+            <div *ngFor="let categoria of map[categoriaPai]">
+
+              <div *ngIf=" filtros.indexOf(categoria) != -1 ">
+                <h4 class="title" style= "color: #056e07;" (click)="applyFilter(categoria)" > {{categoria.designacao}} </h4>
+              </div>
+
+              <div *ngIf=" filtros.indexOf(categoria) == -1 ">
+                <h4  class="title" (click)="applyFilter(categoria)"> {{categoria.designacao}} </h4>
+              </div>
+
+            </div>
           </header>
 
         </article> <!-- card-group-item.// -->

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UserService} from "../user.service";
-import {Categoria} from "../categoria";
+import {Categoria, CategoriaPai} from "../categoria";
 
 @Component({
   selector: 'app-sidebar',
@@ -13,7 +13,8 @@ export class SidebarComponent implements OnInit {
   @Input() filtros: Categoria[];
   @Output() aplicarFiltro : EventEmitter<Categoria> = new EventEmitter<Categoria>();
 
-  categorias : Categoria[];
+  map : { [path: string] :Categoria[]; };
+
 
   constructor( private userService: UserService ) { }
 
@@ -23,11 +24,27 @@ export class SidebarComponent implements OnInit {
 
   getCategorias(): void {
     this.userService.getCategorias()
-      .subscribe(categorias => this.categorias = categorias);
+      .subscribe(categorias => {
+          for( let cat of categorias ){
+            if( cat.categoriaPai.designacao in this.map )
+              this.map[cat.categoriaPai.designacao].push(cat);
+            else
+              this.map[cat.categoriaPai.designacao] = [cat];
+
+          }
+        }
+      );
   }
 
+  getKeys(): string[]{
+    let arr = [];
+    for( let key in this.map ) arr.push(key);
+    return arr;
+  }
+
+
   ngOnInit() {
-    this.categorias = [];
+    this.map = {};
     this.getCategorias();
   }
 

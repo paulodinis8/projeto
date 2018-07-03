@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Propriedade {
+public class CategoriaPai {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -14,10 +14,13 @@ public class Propriedade {
 
     private String designacao;
 
-    public Propriedade(String designacao) {
+    public CategoriaPai(String designacao) {
+        this.designacao = designacao;
     }
 
-    public Propriedade(int id, String designacao) {
+    public CategoriaPai() { }
+
+    public CategoriaPai(int id, String designacao) {
         this.id=id;
         this.designacao=designacao;
     }

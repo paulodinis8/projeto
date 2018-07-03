@@ -2,9 +2,9 @@ package pt.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pt.domain.Propriedade;
+import pt.domain.CategoriaPai;
 
 @Repository
-public interface PropriedadeRespository extends JpaRepository<Propriedade, Integer> {
+public interface CategoriaPaiRespository extends JpaRepository<CategoriaPai, Integer> {
     //List<Categoria> findByDesignacao(String designacao);
 }

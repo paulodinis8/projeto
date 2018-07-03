@@ -1,6 +1,5 @@
 package pt.controller;
 
-import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -19,9 +18,6 @@ import java.util.Map;
 
 @RestController
 public class JogoController {
-
-    Gson gson = new Gson();
-    
     
     @Autowired
     JogoRespository jogoRespository;
