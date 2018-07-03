@@ -17,6 +17,8 @@ import {CarouselModule} from 'ngx-bootstrap/carousel';
 import {PagJogoComponent} from './pag-jogo/pag-jogo.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {EstatisticasComponent} from './estatisticas/estatisticas.component';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import {EstatisticasComponent} from './estatisticas/estatisticas.component';
     PerfilUserComponent,
     SidebarComponent,
     EstatisticasComponent,
-    PagJogoComponent
+    PagJogoComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

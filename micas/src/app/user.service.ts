@@ -38,6 +38,27 @@ export class UserService {
     );
   }
 
+  setUser(  nome: string, localidade: string, email : string, idade : number, password : string, genero : string, totalPontos : number, foto: string) : Observable<Utilizador>{
+    const url = `${this.usersUrl}`;
+    let user : Utilizador;
+    user = new Utilizador();
+    user.totalPontos = totalPontos;
+    user.foto = foto;
+    user.nome = nome;
+    user.genero = genero;
+    user.email = email;
+    user.localidade = localidade;
+    user.password = password;
+    user.idade = idade;
+
+    console.log("setUSer");
+    console.log(user);
+
+    return this.http.post<Utilizador>(url,user);
+
+  }
+
+
   getJogos(pag: number, filtros: number[]): Observable<Pagina> {
     let url = `${this.gamesUrl}?page=${pag}&size=6&filter=${filtros}`;
     console.log(url);
@@ -68,7 +89,7 @@ export class UserService {
       );
   }
 
-   private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T> (operation = 'operation', result?: T) {
      return (error: any): Observable<T> => {
        console.error(error); // log to console instead
        return of( result as T );

@@ -1,0 +1,33 @@
+<div class="form-group">
+  <input type="text" #nome name="username" id="nome" tabindex="1" class="form-control" placeholder="Nome" value="">
+</div>
+<div class="form-group">
+  <input type="text" #localidade name="localidade" id="localidade" tabindex="1" class="form-control" placeholder="Localidade" value="">
+</div>
+<div class="form-group">
+  <input type="email" #email name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+</div>
+<div class="form-group">
+  <input type="text" #idade nome="idade" id="idade" tabindex="1" class="form-control" placeholder="Idade" value="">
+</div>
+<div class="form-group">
+  <input type="password" #password name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+</div>
+<div class="form-group">
+  <input type="genero" #genero name="genero" id="genero" tabindex="2" class="form-control" placeholder="Genero">
+</div>
+<div class="form-group">
+  <input type="totalPontos" #totalPontos name="totalPontos" id="totalPontos" tabindex="2" class="form-control" placeholder="Total Pontos">
+</div>
+<div class="form-group">
+  <input type="foto" #foto name="foto" id="foto" tabindex="2" class="form-control" placeholder="Foto">
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <input type="submit"  name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now"
+             (click)="register(nome.value, localidade.value, email.value, idade.value, password.value, genero.value, totalPontos.value, foto.value)">
+    </div>
+  </div>
+</div>

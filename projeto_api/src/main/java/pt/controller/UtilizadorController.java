@@ -33,8 +33,10 @@ public class UtilizadorController {
         return utilizadorRespository.findByNome();
     }*/
 
+    @CrossOrigin
     @PostMapping("/utilizador")
     public Utilizador create(@RequestBody Map<String, String> body){
+        System.out.println("entrei");
         String nome = body.get("nome");
         String localidade = body.get("localidade");
         String email = body.get("email");
@@ -44,6 +46,7 @@ public class UtilizadorController {
         int totalPontos=Integer.parseInt(body.get("totalPontos"));
         String foto=body.get("foto");
         return utilizadorRespository.save(new Utilizador(nome, localidade, email, idade, password, genero, totalPontos, foto));
+
     }
 
     @PutMapping("/utilizador/{id}")

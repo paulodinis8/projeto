@@ -18,7 +18,7 @@ import java.util.Map;
 
 @RestController
 public class JogoController {
-    
+
     @Autowired
     JogoRespository jogoRespository;
     
