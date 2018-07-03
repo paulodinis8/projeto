@@ -4,7 +4,7 @@ import {Utilizador} from './utilizador';
 import {Observable} from 'rxjs';
 
 
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 
 import {Jogo} from './jogo';
@@ -38,23 +38,30 @@ export class UserService {
     );
   }
 
-  setUser(  nome: string, localidade: string, email : string, idade : number, password : string, genero : string, totalPontos : number, foto: string) : Observable<Utilizador>{
+  setUser(  nome: string, localidade: string, email : string, idade : number, password : string, genero : string, totalPontos : number, foto: string) {
     const url = `${this.usersUrl}`;
-    let user : Utilizador;
-    user = new Utilizador();
-    user.totalPontos = totalPontos;
-    user.foto = foto;
-    user.nome = nome;
-    user.genero = genero;
-    user.email = email;
-    user.localidade = localidade;
-    user.password = password;
-    user.idade = idade;
 
-    console.log("setUSer");
-    console.log(user);
+    var json = JSON.stringify(
+      {
+        totalPontos:totalPontos,
+        nome: nome,
+        genero: genero,
+        email: email,
+        localidade: localidade,
+        password: password,
+        idade: idade
+      });
 
-    return this.http.post<Utilizador>(url,user);
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+
+    var params = json;
+
+    this.http.post<Utilizador>(url, params, httpOptions)
+      .subscribe(result => {
+        console.log(result);
+      });
 
   }
 
