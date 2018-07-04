@@ -22,9 +22,14 @@ public class TrofeuController {
 
     @CrossOrigin
     @GetMapping("/trofeu/{id}")
-    public Trofeu show(@PathVariable String id) {
-        int trofeuId=Integer.parseInt(id);
+    public Trofeu show(@PathVariable int trofeuId) {
         return trofeuRespository.findOne(trofeuId);
+    }
+
+    @CrossOrigin
+    @GetMapping("/trofeu/utilizador/{userId}")
+    public List<Trofeu> showTrofeuByUser(@PathVariable int userId) {
+        return trofeuRespository.findTrofeuByUser(userId);
     }
 
  /*   @CrossOrigin
