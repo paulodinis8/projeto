@@ -6,6 +6,6 @@ export class Jogo{
   link: string;
   descricao: string;
   foto: string;
-  categorias: Categoria;
+  categorias: Categoria[];
 
 }

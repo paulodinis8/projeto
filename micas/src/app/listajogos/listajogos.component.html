@@ -28,11 +28,19 @@
         </div><br>
         <br><br>
 
-        <div class="row">
+        <div class="i-am-centered">
+          <div class="row">
+            <button *ngIf = "!pag.first" (click)="retrocedePag()"> Anterior </button>
+            <h1> {{ pag.number + 1 }} </h1>
+            <button *ngIf = "!pag.last" (click)="avancaPag()"> Proxima </button>
+          </div>
+        </div>
+
+        <!--div class="row">
           <button *ngIf = "!pag.first" (click)="retrocedePag()"> Anterior </button>
           <h1> {{ pag.number + 1 }} </h1>
           <button *ngIf = "!pag.last" (click)="avancaPag()"> Proxima </button>
-        </div>
+        </div-->
 
       </div>
 

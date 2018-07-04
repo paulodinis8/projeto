@@ -1,0 +1,7 @@
+.ct-chart {
+  transform: scale(0.3);
+  transition: .3s ease-in-out transform;
+}
+.ct-chart.scaleUp {
+  transform: scale(1);
+}

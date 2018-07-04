@@ -13,6 +13,7 @@ import {Categoria} from './categoria';
 import {of} from 'rxjs/internal/observable/of';
 import {Pagina} from "./pagina";
 import {Progresso} from "./progresso";
+import {Trofeu} from "./trofeu";
 
 
 @Injectable({
@@ -27,6 +28,7 @@ export class UserService {
   private categoriaUrl = 'http://localhost:8080/categoria';
   private progressoUserUrl = 'http://localhost:8080/progresso/user';
   private usersEmailUrl = 'http://localhost:8080/utilizador';
+  private trofeuUrl = 'http://localhost:8080/trofeu';
 
   constructor( private http: HttpClient ) { }
 
@@ -98,7 +100,6 @@ export class UserService {
 
   }
 
-
   getJogos(pag: number, filtros: number[]): Observable<Pagina> {
     let url = `${this.gamesUrl}?page=${pag}&size=6&filter=${filtros}`;
     console.log(url);
@@ -115,7 +116,7 @@ export class UserService {
       );
   }
 
-   getCategorias(): Observable<Categoria[]>{
+  getCategorias(): Observable<Categoria[]>{
      return this.http.get<Categoria[]>(this.categoriaUrl)
        .pipe(
          catchError(this.handleError<Categoria[]>(`Get categorias`))
@@ -129,12 +130,18 @@ export class UserService {
       );
   }
 
+  getTrofeus(id : number): Observable<Trofeu[]>{
+    return this.http.get<Trofeu[]>(`${this.trofeuUrl}/${id}`)
+      .pipe(
+        catchError(this.handleError<Trofeu[]>('get trofeus by user'))
+      );
+  }
+
   private handleError<T> (operation = 'operation', result?: T) {
      return (error: any): Observable<T> => {
        console.error(error); // log to console instead
        return of( result as T );
      };
    }
-
 
 }
