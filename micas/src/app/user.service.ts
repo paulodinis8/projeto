@@ -26,6 +26,7 @@ export class UserService {
   private gamesUrl = 'http://localhost:8080/jogo';
   private categoriaUrl = 'http://localhost:8080/categoria';
   private progressoUserUrl = 'http://localhost:8080/progresso/user';
+  private usersEmailUrl = 'http://localhost:8080/utilizador';
 
   constructor( private http: HttpClient ) { }
 
@@ -35,6 +36,13 @@ export class UserService {
 
     return this.http.get<Utilizador>(url).pipe(
        catchError(this.handleError<Utilizador>(`getUser id=${id}`))
+    );
+  }
+
+  getUserEmail(email: string): Observable<Utilizador> {
+    const url = `${this.usersEmailUrl}/${email}`;
+    return this.http.get<Utilizador>(url).pipe(
+      catchError(this.handleError<Utilizador>(`getUserEmail email=${email}`))
     );
   }
 
@@ -49,7 +57,8 @@ export class UserService {
         email: email,
         localidade: localidade,
         password: password,
-        idade: idade
+        idade: idade,
+        foto: foto
       });
 
     const httpOptions = {
@@ -59,6 +68,30 @@ export class UserService {
     var params = json;
 
     this.http.post<Utilizador>(url, params, httpOptions)
+      .subscribe(result => {
+        console.log(result);
+      });
+
+  }
+
+  setJogo(nome: string, link: string, descricao: string, foto: string) {
+    const url = `${this.gamesUrl}`;
+
+    var json = JSON.stringify(
+      {
+        nome: nome,
+        link: link,
+        descricao: descricao,
+        foto: foto
+      });
+
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+
+    var params = json;
+
+    this.http.post<Jogo>(url, params, httpOptions)
       .subscribe(result => {
         console.log(result);
       });

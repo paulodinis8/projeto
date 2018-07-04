@@ -7,6 +7,7 @@ import {EstatisticasComponent} from "./estatisticas/estatisticas.component";
 import {PagJogoComponent} from "./pag-jogo/pag-jogo.component";
 import {LoginComponent} from "./login/login.component";
 import {SignUpComponent} from "./sign-up/sign-up.component";
+import {CriarJogoComponent} from "./criar-jogo/criar-jogo.component";
 
 const routes: Routes = [
   { path: 'listajogos', component: ListajogosComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'estatisticas', component: EstatisticasComponent},
   { path: 'jogo/:id', component: PagJogoComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'signUp', component: SignUpComponent}
+  {path: 'signUp', component: SignUpComponent},
+  {path: 'criarjogo', component: CriarJogoComponent}
 
 
 ];

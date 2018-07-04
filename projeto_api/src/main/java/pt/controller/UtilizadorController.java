@@ -22,11 +22,18 @@ public class UtilizadorController {
 
     @CrossOrigin
     @GetMapping("/utilizador/{id}")
-    public Utilizador show(@PathVariable String id){
+    public Utilizador showId(@PathVariable String id) {
         int utilizadorId = Integer.parseInt(id);
         return utilizadorRespository.findOne(utilizadorId);
     }
 
+  /*  @CrossOrigin
+    @GetMapping("/utilizador/{email}")
+    public  Utilizador showEmail(@PathVariable String email ){
+        System.out.println(email);
+        return  utilizadorRespository.findByEmail(email);
+    }
+*/
     /*@PostMapping("/utilizador/search")
     public List<Utilizador> search(@RequestBody Map<String, String> body){
         String searchTerm = body.get("text");

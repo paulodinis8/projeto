@@ -20,6 +20,10 @@ public class Registo {
     public Registo() {
     }
 
+    public Registo(int tempo) {
+        this.tempo=tempo;
+    }
+
     public Registo(Date data, int tempo) {
         this.data=data;
         this.tempo=tempo;

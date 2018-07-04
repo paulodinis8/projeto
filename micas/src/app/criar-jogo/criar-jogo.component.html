@@ -1,0 +1,27 @@
+<div class="form-group">
+  <input type="text" #nome name="nome" id="nome" tabindex="1" class="form-control" placeholder="Nome" value="">
+</div>
+<div class="form-group">
+  <input type="link" #link name="link" id="link" tabindex="2" class="form-control" placeholder="link">
+</div>
+<div class="form-group">
+  <input type="descricao" #descricao name="descricao" id="descricao" tabindex="2" class="form-control"
+         placeholder="Descricao">
+</div>
+<div class="form-group">
+  <input type="foto" #foto name="foto" id="foto" tabindex="2" class="form-control" placeholder="Foto">
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+
+
+      <input type="submit" name="register-submit" id="register-submit" tabindex="4"
+             class="form-control btn btn-register" value="Registar Jogo Agora"
+             (click)="register(nome.value, link.value, descricao.value, foto.value)">
+
+
+    </div>
+  </div>
+</div>

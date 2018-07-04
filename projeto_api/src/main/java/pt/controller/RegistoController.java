@@ -1,12 +1,18 @@
 package pt.controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import pt.domain.Registo;
+import pt.repository.RegistoRespository;
+
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class RegistoController {
-/*
+
    @Autowired
-    RegistoRespository registoRespository;
+   RegistoRespository registoRespository;
 
     @CrossOrigin
     @GetMapping("/registo")
@@ -21,20 +27,14 @@ public class RegistoController {
         return registoRespository.findOne(registoId);
     }
 
+ /*   @CrossOrigin
     @PostMapping("/registo")
     public Registo create(@RequestBody Map<String, String> body) {
-       // Date data = format.parse(body.get("data"));
+        //Date data = (body.get("data"));
         int tempo = Integer.parseInt(body.get("tempo"));
-        return registoRespository.save(new Registo(/*data, tempo));
+        return registoRespository.save(new Registo(tempo));
     }
-
-   /* @PostMapping("/registo")
-    public registo create(@RequestBody Map<String, String> body){
-        String designacao = body.get("designacao");
-        int subregisto_id = Integer.parseInt(body.get("subregisto_id"));
-        return registoRespository.save(new registo(designacao,subregisto_id));
-    }
-
+*/
 
     @PutMapping("/registo/{id}")
     public Registo update(@PathVariable String id, @RequestBody Map<String, String> body){
@@ -54,5 +54,4 @@ public class RegistoController {
         return true;
     }
 
-*/
 }

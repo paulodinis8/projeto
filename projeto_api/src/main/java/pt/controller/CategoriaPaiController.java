@@ -6,8 +6,6 @@ import pt.domain.CategoriaPai;
 import pt.repository.CategoriaPaiRespository;
 
 import java.util.List;
-
-import java.util.ArrayList;
 import java.util.Map;
 
 @RestController
@@ -19,7 +17,6 @@ public class CategoriaPaiController {
     @CrossOrigin
     @GetMapping("/CategoriaPai")
     public List<CategoriaPai> index() {
-        System.out.println("catpai .. ");
         return categoriaPaiRespository.findAll();
     }
 

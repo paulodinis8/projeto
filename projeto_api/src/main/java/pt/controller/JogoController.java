@@ -85,10 +85,15 @@ public class JogoController {
         return jogoRespository.findByNome();
     }*/
 
+    @CrossOrigin
     @PostMapping("/jogo")
-    public Jogo create(@RequestBody Jogo jogo){
-        
-        return jogoRespository.save(jogo);
+    public Jogo create(@RequestBody Map<String, String> body) {
+        String nome=body.get("nome");
+        String link=body.get("link");
+        String descricao=body.get("descricao");
+        String foto=body.get("foto");
+
+        return jogoRespository.save(new Jogo(nome, link, descricao, foto));
     }
 
 

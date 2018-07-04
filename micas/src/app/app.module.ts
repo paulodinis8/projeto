@@ -17,9 +17,10 @@ import {CarouselModule} from 'ngx-bootstrap/carousel';
 import {PagJogoComponent} from './pag-jogo/pag-jogo.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {EstatisticasComponent} from './estatisticas/estatisticas.component';
-import { LoginComponent } from './login/login.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-
+import {LoginComponent} from './login/login.component';
+import {SignUpComponent} from './sign-up/sign-up.component';
+import {FormsModule} from '@angular/forms';
+import {CriarJogoComponent} from './criar-jogo/criar-jogo.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +34,15 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     EstatisticasComponent,
     PagJogoComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    CriarJogoComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     CarouselModule.forRoot(),
+    FormsModule,
   ],
   bootstrap: [
     AppComponent
